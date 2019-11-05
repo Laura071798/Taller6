@@ -53,7 +53,7 @@ def update_label():
     cont=cont+1
     ref = db.reference("sensor")
     ref.update({
-                'sensor1': {
+                'sensor2': {
                     'adc': 0,
                     'valor': cont,
                     
