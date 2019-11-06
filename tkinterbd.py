@@ -49,6 +49,7 @@ variable=StringVar()
 valor2= Label(marco1, bg='cadet blue1', font=("Arial Bold", 15), fg="white", width=5)
 adc_data=StringVar()
 
+
 def update_label():
     global cont
     cont=cont+1
@@ -109,8 +110,12 @@ start_button.place(x=20, y=160)
 
 valor2.configure(textvariable=adc_data)
 valor2.place(x=130, y=90)
-prom_15=Button(marco1,text="adc_data",command=adc_read)
+prom_15=Button(marco1,text="prom_15",command=adc_read)
 prom_15.place(x=80, y=160)
+
+
+LEDS_ON=Button(marco1,text="LEDS_ON",command=leds_on)
+LEDS_ON.place(x=140, y=160)
 
 save_button=Button(marco1,text="save",command=save)
 save_button.place(x=170, y=160)
