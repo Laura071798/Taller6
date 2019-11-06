@@ -89,9 +89,21 @@ def leds_on():
     
     ref = db.reference('sensor')
     ref.update({
-        'sensor1/Led10': 'LED_ON',
-        'sensor1/Led11': 'LED_ON',
-        'sensor1/Led12': 'LED_ON'
+        'sensor1/Led10': 'ON',
+        'sensor1/Led11': 'ON',
+        'sensor1/Led12': 'ON'
+     })
+
+def leds_off():
+    led5.write(0)
+    led6.write(0)
+    led7.write(0)
+    
+    ref = db.reference('sensor')
+    ref.update({
+        'sensor1/Led10': 'OFF',
+        'sensor1/Led11': 'OFF',
+        'sensor1/Led12': 'OFF'
      })
     
 def save():
@@ -117,8 +129,11 @@ prom_15.place(x=80, y=160)
 LEDS_ON=Button(marco1,text="LEDS_ON",command=leds_on)
 LEDS_ON.place(x=140, y=160)
 
+LEDS_OFF=Button(marco1,text="LEDS_ON",command=leds_off)
+LEDS_OFF.place(x=250, y=160)
+
 save_button=Button(marco1,text="save",command=save)
-save_button.place(x=170, y=160)
+save_button.place(x=370, y=160)
 
 
 
