@@ -24,7 +24,7 @@ led6 = placa.get_pin('d:11:o')
 led7 = placa.get_pin('d:12:o')
 time.sleep(0.5)
 ventana = Tk()
-ventana.geometry('1280x800')
+ventana.geometry('800x400')
 ventana.title("UI para sistemas de control")
 
 # Fetch the service account key JSON file contents
@@ -42,11 +42,10 @@ img = Image.open("C:/Users/laura/Pictures/logo.png")
 img = img.resize((150,150), Image.ANTIALIAS)
 photoImg=  ImageTk.PhotoImage(img)
 b.configure(image=photoImg)
-b.place(x = 760,y = 20)
+b.place(x = 460,y = 20)
 
-valor= Label(marco1, bg='cadet blue1', font=("Arial Bold", 15), fg="white", width=5)
-variable=StringVar()
-valor2= Label(marco1, bg='cadet blue1', font=("Arial Bold", 15), fg="white", width=5)
+
+valor= Label(marco1, bg='sky blue', font=("Arial Bold", 15), fg="white", width=5)
 adc_data=StringVar()
 
 
@@ -112,36 +111,26 @@ def leds_off():
         'sensor1/Led12': 'OFF'
      })
     
-def save():
-    ref = db.reference('sensor')
-    ref.update({
-        'sensor3/message': 'hola'
-    })
-    
+
     
   
 
-valor.configure(textvariable=cont)
-valor.place(x=20, y=90)
 
-valor2.configure(textvariable=adc_data)
-valor2.place(x=130, y=90)
+
+valor.configure(textvariable=adc_data)
+valor.place(x=130, y=90)
 
 contador=Button(marco1,text="cont",command=update_label)
-contador.place(x=20, y=160)
+contador.place(x=110, y=220)
 
 prom_15=Button(marco1,text="prom_15",command=adc_read)
-prom_15.place(x=80, y=160)
+prom_15.place(x=60, y=90)
 
 LEDS_ON=Button(marco1,text="LEDS_ON",command=leds_on)
-LEDS_ON.place(x=140, y=160)
+LEDS_ON.place(x=60, y=160)
 
-LEDS_OFF=Button(marco1,text="LEDS_ON",command=leds_off)
-LEDS_OFF.place(x=250, y=160)
-
-save_button=Button(marco1,text="save",command=save)
-save_button.place(x=360, y=160)
-
+LEDS_OFF=Button(marco1,text="LEDS_OFF",command=leds_off)
+LEDS_OFF.place(x=140, y=160)
 
 
 
